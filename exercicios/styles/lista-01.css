@@ -1,0 +1,110 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --cor-roxa: #9353ff;
+  --branco: #fff;
+  --preto: #000;
+  --cinza-claro: #6c757d;
+  --font-principal: "Inter", sans-serif;
+}
+
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  height: 100vh;
+  background-color: var(--cor-roxa);
+}
+
+/*************************************************************************
+* Suggestion Box
+*************************************************************************/
+.suggestion-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  width: 729px;
+  padding: 40px;
+  border: 2px solid var(--preto);
+  background-color: var(--branco);
+}
+
+.suggestion-box h2 {
+  font-size: 20px;
+  font-family: var(--font-principal);
+}
+
+.suggestion-box input {
+  padding: 7px 15px;
+  width: 80%;
+}
+
+.suggestion-box input::placeholder {
+  font-family: var(--font-principal);
+  font-size: 16px;
+  color: var(--cinza-claro);
+}
+
+.suggestion-box button {
+  background-color: var(--cor-roxa);
+  color: var(--branco);
+  padding: 9px 18px;
+  font-family: var(--font-principal);
+  border: none;
+}
+
+/*************************************************************************
+* Custom Checkbox
+*************************************************************************/
+.agreement-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+  background-color: var(--branco);
+  padding: 1rem;
+}
+
+.agreement-container p {
+  font-family: var(--font-principal);
+  font-size: 16px;
+  color: var(--cinza-claro);
+}
+
+.checkbox-input {
+  display: none;
+}
+
+.custom-checkbox {
+  width: 24px;
+  height: 24px;
+  border: 1px solid var(--cinza-claro);
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.checked {
+  background-color: var(--cor-roxa);
+  position: relative;
+}
+
+.checked::after {
+  content: "";
+  position: absolute;
+  left: 30%;
+  top: 8%;
+  width: 8px;
+  height: 16px;
+  border-top: 2px solid var(--branco);
+  border-left: 2px solid var(--branco);
+  transform: rotate(-140deg);
+}
