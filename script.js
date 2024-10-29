@@ -1,25 +1,60 @@
 const item = document.getElementById("input-item");
 const botaoSalvarItem = document.getElementById("adicionar-item");
-const listaDeCompras = document.getElementById("lista-de-compras");
+const listaContainer = document.getElementById("lista-container");
+let contador = 0;
 
 function adicionarItem(event) {
   event.preventDefault();
 
-  const itemDaLista = document.createElement("li");
-  const containerItemLista = document.createElement("div");
-  containerItemLista.classList.add("item-lista-container");
+  /******************************************************************************
+   * Item Container
+   ******************************************************************************/
+  const itemContainer = document.createElement("li");
+  itemContainer.classList.add("item-container");
 
-  const containerNomeDoItem = document.createElement("div");
-  const nomeDoItem = document.createElement("p");
-  nomeDoItem.innerText = item.value;
-  containerNomeDoItem.appendChild(nomeDoItem);
+  /******************************************************************************
+   * Nome Container
+   ******************************************************************************/
+
+  const nomeContainer = document.createElement("div");
+  nomeContainer.classList.add("nome-container");
+
+  /******************************************************************************
+   * Checkbox
+   ******************************************************************************/
+
+  //INPUT
+  const checkboxInput = document.createElement("input");
+  checkboxInput.type = "checkbox";
+  checkboxInput.classList.add("checkbox-input");
+  checkboxInput.id = "checkbox-" + contador++;
+
+  //LABEL
+  const checkboxLabel = document.createElement("label");
+  checkboxLabel.setAttribute("for", checkboxInput.id);
+
+  //CHECKBOX CUSTOMIZADO
+  const checkboxCustomizado = document.createElement("div");
+  checkboxCustomizado.classList.add("checkbox-customizado");
+
+  //APPEND INPUT & CHECKBOX NO LABEL
+  checkboxLabel.appendChild(checkboxInput);
+  checkboxLabel.appendChild(checkboxCustomizado);
+
+  //NOME
+  const nome = document.createElement("p");
+  nome.innerText = item.value;
+
+  //APPEND LABEL & NOME NO NOME CONTAINER
+  nomeContainer.appendChild(checkboxLabel);
+  nomeContainer.appendChild(nome);
 
   //Container Botões
-  const containerBotoes = document.createElement("div");
+  const botoesContainer = document.createElement("div");
 
   //Botão Remover
   const botaoRemover = document.createElement("button");
-  botaoRemover.classList.add("botao-acao");
+  botaoRemover.classList.add("botao");
 
   const imagemRemover = document.createElement("img");
   imagemRemover.src = "img/delete.svg";
@@ -29,7 +64,7 @@ function adicionarItem(event) {
 
   //Botão Editar
   const botaoEditar = document.createElement("button");
-  botaoEditar.classList.add("botao-acao");
+  botaoEditar.classList.add("botao");
 
   const imagemEditar = document.createElement("img");
   imagemEditar.src = "img/edit.svg";
@@ -37,14 +72,13 @@ function adicionarItem(event) {
 
   botaoEditar.appendChild(imagemEditar);
 
-  containerBotoes.appendChild(botaoRemover);
-  containerBotoes.appendChild(botaoEditar);
+  botoesContainer.appendChild(botaoRemover);
+  botoesContainer.appendChild(botaoEditar);
 
-  containerItemLista.appendChild(containerNomeDoItem);
-  containerItemLista.appendChild(containerBotoes);
+  itemContainer.appendChild(nomeContainer);
+  itemContainer.appendChild(botoesContainer);
 
-  itemDaLista.appendChild(containerItemLista);
-  listaDeCompras.appendChild(itemDaLista);
+  listaContainer.appendChild(itemContainer);
 }
 
 botaoSalvarItem.addEventListener("click", adicionarItem);

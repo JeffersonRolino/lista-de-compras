@@ -99,19 +99,15 @@ ul {
   width: 100%;
 }
 
-.item-lista-container {
+.item-container {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
 }
 
-.container-nome-compra {
+.nome-container {
   display: flex;
-}
-
-.item-lista-texto {
-  font-size: 12px;
-  line-height: 20px;
 }
 
 .checkbox-input {
@@ -145,7 +141,14 @@ ul {
   transform: rotate(-140deg);
 }
 
-.botao-acao {
+.botao {
   background-color: transparent;
   border: none;
+}
+
+.data-texto {
+  display: block;
+  width: 100%;
+  font-size: 12px;
+  line-height: 20px;
 }
