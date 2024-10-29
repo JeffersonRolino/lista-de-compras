@@ -14,7 +14,10 @@ function adicionarItem(event) {
   nomeDoItem.innerText = item.value;
   containerNomeDoItem.appendChild(nomeDoItem);
 
+  //Container Botões
   const containerBotoes = document.createElement("div");
+
+  //Botão Remover
   const botaoRemover = document.createElement("button");
   botaoRemover.classList.add("botao-acao");
 
@@ -23,10 +26,23 @@ function adicionarItem(event) {
   imagemRemover.alt = "Remover";
 
   botaoRemover.appendChild(imagemRemover);
+
+  //Botão Editar
+  const botaoEditar = document.createElement("button");
+  botaoEditar.classList.add("botao-acao");
+
+  const imagemEditar = document.createElement("img");
+  imagemEditar.src = "img/edit.svg";
+  imagemEditar.alt = "Editar";
+
+  botaoEditar.appendChild(imagemEditar);
+
   containerBotoes.appendChild(botaoRemover);
+  containerBotoes.appendChild(botaoEditar);
 
   containerItemLista.appendChild(containerNomeDoItem);
   containerItemLista.appendChild(containerBotoes);
+
   itemDaLista.appendChild(containerItemLista);
   listaDeCompras.appendChild(itemDaLista);
 }
