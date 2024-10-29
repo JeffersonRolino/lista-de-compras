@@ -33,6 +33,19 @@ function adicionarItem(event) {
   const checkboxLabel = document.createElement("label");
   checkboxLabel.setAttribute("for", checkboxInput.id);
 
+  checkboxLabel.addEventListener("click", (evento) => {
+    const checkboxInput = evento.currentTarget.querySelector(".checkbox-input");
+    const checkboxCustomizado = evento.currentTarget.querySelector(
+      ".checkbox-customizado"
+    );
+
+    if (checkboxInput.checked) {
+      checkboxCustomizado.classList.add("checked");
+    } else {
+      checkboxCustomizado.classList.remove("checked");
+    }
+  });
+
   //CHECKBOX CUSTOMIZADO
   const checkboxCustomizado = document.createElement("div");
   checkboxCustomizado.classList.add("checkbox-customizado");
