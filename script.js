@@ -1,6 +1,7 @@
 const item = document.getElementById("input-item");
 const botaoSalvarItem = document.getElementById("adicionar-item");
 const listaContainer = document.getElementById("lista-container");
+const listaComprados = document.getElementById("lista-comprados");
 let contador = 0;
 
 function adicionarItem(event) {
@@ -38,11 +39,18 @@ function adicionarItem(event) {
     const checkboxCustomizado = evento.currentTarget.querySelector(
       ".checkbox-customizado"
     );
+    const itemTitulo = evento.currentTarget
+      .closest("li")
+      .querySelector("#item-titulo");
 
     if (checkboxInput.checked) {
       checkboxCustomizado.classList.add("checked");
+      itemTitulo.style.textDecoration = "line-through";
+      listaComprados.appendChild(itemContainer);
     } else {
       checkboxCustomizado.classList.remove("checked");
+      itemTitulo.style.textDecoration = "none";
+      listaContainer.appendChild(itemContainer);
     }
   });
 
@@ -56,6 +64,7 @@ function adicionarItem(event) {
 
   //NOME
   const nome = document.createElement("p");
+  nome.id = "item-titulo";
   nome.innerText = item.value;
 
   //APPEND LABEL & NOME NO NOME CONTAINER

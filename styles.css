@@ -57,6 +57,10 @@ p {
   text-align: left;
 }
 
+.titulo {
+  width: 100%;
+}
+
 #input-item {
   padding: 12px 16px;
   display: block;
