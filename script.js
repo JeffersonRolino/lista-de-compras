@@ -100,6 +100,16 @@ function adicionarItem(event) {
   itemContainer.appendChild(nomeContainer);
   itemContainer.appendChild(botoesContainer);
 
+  const itemData = document.createElement("p");
+  itemData.classList.add("data-texto");
+  itemData.innerText = `${new Date().toLocaleDateString("pt-BR", {
+    weekday: "long",
+  })} (${new Date().toLocaleDateString()}) às ${new Date().toLocaleTimeString(
+    "pt-BR",
+    { hour: "numeric", minute: "numeric" }
+  )}`;
+
+  itemContainer.appendChild(itemData);
   listaContainer.appendChild(itemContainer);
 }
 
