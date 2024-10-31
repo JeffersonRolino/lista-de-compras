@@ -7,7 +7,13 @@ const listaDeCompras = document.getElementById("lista-de-compras");
 export function adicionarItem(event) {
   event.preventDefault();
 
-  const itemDaLista = criarItemDaLista(item.value);
-  listaDeCompras.appendChild(itemDaLista);
-  verificarListaVazia(listaDeCompras);
+  if (item.value === "") {
+    alert("Por favor insira um item!");
+    return;
+  } else {
+    const itemDaLista = criarItemDaLista(item.value);
+    listaDeCompras.appendChild(itemDaLista);
+    verificarListaVazia(listaDeCompras);
+    item.value = "";
+  }
 }
