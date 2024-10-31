@@ -150,6 +150,10 @@ ul {
   border: none;
 }
 
+.botao:hover {
+  cursor: pointer;
+}
+
 .data-texto {
   display: block;
   width: 100%;

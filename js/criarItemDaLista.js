@@ -1,3 +1,6 @@
+import { excluirItem } from "./excluirItem.js";
+
+const listaDeCompras = document.getElementById("lista-de-compras");
 const listaComprados = document.getElementById("lista-comprados");
 let contador = 0;
 
@@ -18,7 +21,6 @@ export function criarItemDaLista(item) {
   /******************************************************************************
    * Checkbox
    ******************************************************************************/
-
   //INPUT
   const checkboxInput = document.createElement("input");
   checkboxInput.type = "checkbox";
@@ -45,7 +47,7 @@ export function criarItemDaLista(item) {
     } else {
       checkboxCustomizado.classList.remove("checked");
       itemTitulo.style.textDecoration = "none";
-      listaContainer.appendChild(itemContainer);
+      listaDeCompras.appendChild(itemContainer);
     }
   });
 
@@ -66,10 +68,14 @@ export function criarItemDaLista(item) {
   nomeContainer.appendChild(checkboxLabel);
   nomeContainer.appendChild(nome);
 
-  //Container Botões
+  /******************************************************************************
+   * BOTÕES
+   ******************************************************************************/
   const botoesContainer = document.createElement("div");
 
-  //Botão Remover
+  //////////////////////////////////////////////////////////
+  // Botão Remover
+  //////////////////////////////////////////////////////////
   const botaoRemover = document.createElement("button");
   botaoRemover.classList.add("botao");
 
@@ -77,9 +83,15 @@ export function criarItemDaLista(item) {
   imagemRemover.src = "img/delete.svg";
   imagemRemover.alt = "Remover";
 
+  botaoRemover.addEventListener("click", () => {
+    excluirItem(itemContainer);
+  });
+
   botaoRemover.appendChild(imagemRemover);
 
-  //Botão Editar
+  //////////////////////////////////////////////////////////
+  // Botão Editar
+  //////////////////////////////////////////////////////////
   const botaoEditar = document.createElement("button");
   botaoEditar.classList.add("botao");
 
