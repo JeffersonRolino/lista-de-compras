@@ -61,6 +61,11 @@ p {
   width: 100%;
 }
 
+.comprados-container {
+  display: none;
+  width: 100%;
+}
+
 #input-item {
   padding: 12px 16px;
   display: block;
