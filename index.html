@@ -25,19 +25,21 @@
         <button id="adicionar-item" class="adicionar-item">Salvar Item</button>
       </form>
 
-      <ul id="lista-container">
+      <div class="lista-container">
         <h2>Lista de Compras</h2>
         <hr />
-        <p id="mensagem-lista-vazia" style="display: block">
-          Sua lista está vazia...
-        </p>
-      </ul>
+        <ul id="lista-de-compras">
+          <p id="mensagem-lista-vazia" style="display: block">
+            Sua lista está vazia...
+          </p>
+        </ul>
+      </div>
 
-      <div class="titulo">
+      <div class="lista-container">
         <h2>Comprado</h2>
         <hr />
+        <ul id="lista-comprados"></ul>
       </div>
-      <ul id="lista-comprados"></ul>
     </main>
 
     <script src="./script.js" type="module"></script>
